@@ -1,0 +1,81 @@
+{% extends 'music/base.html' %}
+
+{% block body %}
+<br>
+<div class="row">
+	<div class="col s12 m6 offset-m3 l4">
+	      <div class="card">
+	        <div class="card-image">
+	          <img src="{{ album.album_logo }}" alt="{{ album.album_title }}, by {{ album.artist }}">
+	        </div>
+	        <div class="card-content">
+	        	<ul class="collapsible">
+    				<li class="active">
+    					<div class="collapsible-header">
+	        		<span class="card-title truncate">{{ album.album_title }}</span>
+	        			</div>
+	        			<div class="collapsible-body">
+	        			<span class="card-title">{{ album.album_title }}</span>
+	        			</div>
+	        		</li>
+	        		<li>Artist: {{ album.artist }}</li>
+	        		<li>Genre: {{ album.genre }}</li>
+	        	</ul>
+	        	<!--
+	        	<br>
+	        	<p>Artist: {{ album.artist }}</p>
+	        	<p>Genre: {{ album.genre }}</p>
+	        	-->
+	        </div>
+	      </div>
+	      
+    </div>
+<!--
+<img src="{{ album.album_logo }}" alt="{{ album.album_title }}, by {{ album.artist }}">
+
+<h3>{{ album.album_title }}</h3>
+<h4>{{ album.artist }}</h4>
+-->
+<!--
+{% if error_message %}
+	<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+-->
+	<div class="col s12 m12 l8">
+	<div class="row">
+		<a href="#" class="waves-effect waves-light btn"><i class="material-icons">add</i>Add Song</a>
+		<a href="#" class="waves-effect waves-light btn">View All</a>
+	</div>
+	<table class="responsive highlight bordered">
+		<thead>
+			<th>Song Title</th>
+            <th>Audio File</th>
+            <th>Is a Favorite?</th>
+            <th>Actions?</th>
+		</thead>
+		<tbody>
+			{% for song in album.song_set.all %}
+			<tr>
+				<td>{{ song.song_title }}</td>
+				<td>{{ song.file_type }}</td>
+				<td>{% if song.is_favorite %}
+				<img src="http://icons.iconarchive.com/icons/3xhumed/star-wars-the-old-republic/16/Star-Wars-The-Old-Republic-8-icon.png" alt="This is a favorite song" />
+			{% endif %}</td>
+				<td></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<!--
+{% for song in album.song_set.all %}
+		<input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}" />
+		<label for="song{{ forloop.counter }}">
+			{{ song.song_title }}
+			{% if song.is_favorite %}
+				<img src="http://icons.iconarchive.com/icons/3xhumed/star-wars-the-old-republic/16/Star-Wars-The-Old-Republic-8-icon.png" alt="This is a favorite song" />
+			{% endif %}
+		</label>
+		<br>
+	{% endfor %}
+	-->
+{% endblock %}

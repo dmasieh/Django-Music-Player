@@ -1,0 +1,37 @@
+#layOut {
+	background-color: #212121;
+	color: #ffd700;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+    flex: 1 0 auto;
+}
+
+.mobileSearch {
+	margin: 0 0 0 50px !important;
+	width: 60% !important;
+}
+
+.material-icons {
+	color: #ffd700 !important;
+}
+
+#fontAwIcon {
+	vertical-align: middle;
+	line-height: 56px !important;
+}
+
+.activePage {
+	color: #212121;
+	background-color: #ffd700;
+}
+
+.brand-logo {
+	font-family: Bungee;
+}

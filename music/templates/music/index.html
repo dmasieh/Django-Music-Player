@@ -1,0 +1,47 @@
+{% extends 'music/base.html' %}
+
+{% block body %}
+	
+	<!--if statement if there are no albums-->
+	<h3>Here are all of the Albums:</h3>
+	<!--{% if all_albums %}-->
+	<!--
+	<ul>
+		{% for album in all_albums %}
+		<li><a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a></li>
+		{% endfor %}
+	</ul>
+	-->
+
+	<div class="row">
+    	{% for album in all_albums %}
+    	<div class="col s12 m6 l4">
+    		
+	      <div class="card">
+	        <div class="card-image">
+	          <img src="{{ album.album_logo }}" alt="{{ album.album_title }}, by {{ album.artist }}">
+	        </div>
+	        <div class="card-content">
+	        	<span class="card-title truncate">{{ album.album_title }}</span>
+	        	<p>{{ album.artist }}</p>
+	          	<br>
+	          	<div class="row">
+	          	<a href="{% url 'music:detail' album.id %}" class="waves-effect waves-light btn" title="View ALbum Details">Details</a>
+
+	          	<a class="waves-effect waves-light btn" title="Add to Favorites"><i class="material-icons">add_circle_outline</i></a>
+
+	          	<a class="waves-effect waves-light btn" title="Delete Album"><i class="material-icons">delete</i></a>
+	          	</div>
+
+	        </div>
+	      </div>
+	      
+    	</div>
+    	{% endfor %}
+  </div>
+	<!--
+	{% else %}
+		<h2>You don't have any albums</h2>
+	{% endif %}
+	-->
+{% endblock %}

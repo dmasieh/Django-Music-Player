@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Star Tunes | Star Wars Music Player</title>
+	
+	<!--loads the path to static files such as stylesheets and/or scripts-->
+	{% load staticfiles %}
+
+	<!-- Materialize CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}" />
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+	<!--Start of NavBar-->
+	<nav id="layOut">
+	    <div class="nav-wrapper container">
+
+	      <a href="{% url 'music:index' %}" class="brand-logo center hide-on-med-and-down" id="layOut"><i class="fa fa-rebel" id="fontAwIcon" aria-hidden="true"></i>Star Tunes</a>
+	      <a href="{% url 'music:index' %}" class="brand-logo center hide-on-large-only show-on-medium-and-down" id="layOut"><i class="fa fa-rebel" id="fontAwIcon" aria-hidden="true"></i>ST</a>
+	      <a href="#" data-target="mobile-demo" class="sidenav-trigger left" id="layOut"><i class="material-icons">menu</i></a>
+	      <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large hide-on-med-and-down right" id="layOut"><i class="material-icons">menu</i></a>
+	      <form class="left hide-on-med-and-down">
+	        <div class="input-field">
+	          <input id="search" type="search" required>
+	          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+	          <i class="material-icons">close</i>
+	        </div>
+	      </form>
+	      <ul class="sidenav" id="mobile-demo">
+	        <li><a href="{% url 'music:index' %}" id="layOut"><i class="material-icons">album</i>Albums</a></li>
+	        <li><a href="#" id="layOut"><i class="material-icons">music_note</i>Songs</a></li>
+	        <li><a href="#" id="layOut"><i class="material-icons">add</i>Add Album</a></li>
+	        <li><a href="#" id="layOut"><i class="material-icons">power_settings_new</i>Log Out</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+	  <main class="container">
+	  	<!--Dynamic content blocks from throughout the site-->
+	  	{% block body %}
+
+
+	  	{% endblock %}
+
+
+		</main>
+	<div class="hide-on-large-only">
+	<h4 class="center">Search For a Song/Album</h4>
+	  	<br>
+	  	<form>
+	        <div class="input-field">
+	          <input class="mobileSearch" id="search" type="search" required>
+	          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+	          <i class="material-icons">close</i>
+	        </div>
+	      </form>
+	</div>
+	<!-- UIkit JS -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
+	<script type="text/javascript" src="{% static 'music/init.js' %}"></script>
+</body>
+</html>
